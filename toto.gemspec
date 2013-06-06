@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<riot>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<hpricot>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])

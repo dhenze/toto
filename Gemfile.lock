@@ -12,6 +12,7 @@ GEM
     builder (3.2.1)
     hpricot (0.8.6)
     rack (1.5.2)
+    rake (10.0.4)
     rdiscount (2.1.6)
     riot (0.12.5)
       rr
@@ -22,5 +23,6 @@ PLATFORMS
 
 DEPENDENCIES
   hpricot
+  rake
   riot
   toto!
