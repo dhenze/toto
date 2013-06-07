@@ -4,7 +4,7 @@ PATH
     toto (0.4.9)
       builder
       rack
-      rdiscount
+      redcarpet
 
 GEM
   remote: https://rubygems.org/
@@ -13,7 +13,7 @@ GEM
     hpricot (0.8.6)
     rack (1.5.2)
     rake (10.0.4)
-    rdiscount (2.1.6)
+    redcarpet (2.3.0)
     riot (0.12.5)
       rr
     rr (1.1.0)

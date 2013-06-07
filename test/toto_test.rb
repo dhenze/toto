@@ -6,7 +6,7 @@ AUTHOR = "toto"
 
 context Toto do
   setup do
-    @config = Toto::Config.new(:markdown => true, :author => AUTHOR, :url => URL)
+    @config = Toto::Config.new(:markdown => {}, :author => AUTHOR, :url => URL)
     @toto = Rack::MockRequest.new(Toto::Server.new(@config))
     Toto::Paths[:articles] = "test/articles"
     Toto::Paths[:pages] = "test/templates"
@@ -155,7 +155,7 @@ context Toto do
 
   context "creating an article" do
     setup do
-      @config[:markdown] = true
+      @config[:markdown] = {}
       @config[:date] = lambda {|t| "the time is #{t.strftime("%Y/%m/%d %H:%M")}" }
       @config[:summary] = {:length => 50}
     end

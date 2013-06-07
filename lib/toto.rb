@@ -9,7 +9,7 @@ if RUBY_PLATFORM =~ /win32/
   require 'maruku'
   Markdown = Maruku
 else
-  require 'rdiscount'
+  require 'redcarpet'
 end
 
 require 'builder'
@@ -41,7 +41,7 @@ module Toto
 
     def markdown text
       if (options = @config[:markdown])
-        Markdown.new(text.to_s.strip, *(options.eql?(true) ? [] : options)).to_html
+        Redcarpet::Markdown.new(Redcarpet::Render::HTML, options).render(text)
       else
         text.strip
       end
@@ -304,7 +304,7 @@ module Toto
       :url => "http://127.0.0.1",                           # root URL of the site
       :prefix => "",                                        # common path prefix for the blog
       :date => lambda {|now| now.strftime("%d/%m/%Y") },    # date function
-      :markdown => :smart,                                  # use markdown
+      :markdown => {},                                      # use markdown
       :disqus => false,                                     # disqus name
       :summary => {:max => 150, :delim => /~\n/},           # length of summary and delimiter
       :ext => 'txt',                                        # extension for articles
