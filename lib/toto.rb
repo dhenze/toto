@@ -125,6 +125,7 @@ module Toto
           if (data = archives('', route[1])).nil?
             http 404 
           else 
+            p data
             context[data, :tags]
           end
         elsif respond_to?(path)

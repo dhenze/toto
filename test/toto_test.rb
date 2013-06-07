@@ -75,18 +75,21 @@ context Toto do
       should("includes the year & month")           { topic.body }.includes_html("h1" => /2009\/12/)
     end
 
-    context "through /archive" do
-      setup { @toto.get('/archive') }
+    context "through /archives" do
+      setup { @toto.get('/archives') }
+      asserts("returns a 200")                      { topic.status }.equals 200
+      should("includes all entries") { topic.body }.includes_elements("li.entry", 5)
+    end
+    
+    context "GET a tag page" do 
+      setup { @toto.get('/tags/berlin') }
+      asserts("returns a 200")                         { topic.status }.equals 200 
+      asserts("body is not empty")                     { not topic.body.empty? }
+      should("includes only the entries for that tag") { topic.body }.includes_elements("li.entry", 2)
+      should("has access to @tag")                     { topic.body }.includes_html("#tag" => /berlin/)
     end
   end
 
-  context "GET a tag page" do 
-    setup { @toto.get('/tags/berlin') }
-    asserts("returns a 200")                         { topic.status }.equals 200 
-    asserts("body is not empty")                     { not topic.body.empty? }
-    should("includes only the entries for that tag") { topic.body }.includes_elements("li.entry", 2)
-    should("has access to @tag")                     { topic.body }.includes_html("#tag" => /berlin/)
-  end
 
   context "GET to an unknown route with a custom error" do
     setup do
