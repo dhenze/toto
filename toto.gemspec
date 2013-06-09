@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<builder>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])
       s.add_runtime_dependency(%q<redcarpet>, [">= 0"])
+      s.add_runtime_dependency(%q<coderay>, [">= 0"])
     else
       s.add_dependency(%q<riot>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 0"])

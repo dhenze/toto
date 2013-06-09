@@ -5,12 +5,8 @@ require 'rack'
 require 'digest'
 require 'open-uri'
 
-if RUBY_PLATFORM =~ /win32/
-  require 'maruku'
-  Markdown = Maruku
-else
-  require 'redcarpet'
-end
+require 'coderay'
+require 'redcarpet'
 
 require 'builder'
 
@@ -33,6 +29,12 @@ module Toto
     ENV['RACK_ENV'] = env
   end
 
+  class CodeRayify < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.scan(code, language).div
+    end
+  end
+
   module Template
     def to_html page, config, &blk
       path = ([:layout, :repo].include?(page) ? Paths[:templates] : Paths[:pages])
@@ -40,8 +42,10 @@ module Toto
     end
 
     def markdown text
+      coderayified = CodeRayify.new(:filter_html => true, :hard_wrap => true)
+
       if (options = @config[:markdown])
-        Redcarpet::Markdown.new(Redcarpet::Render::HTML, options).render(text)
+        Redcarpet::Markdown.new(coderayified, options).render(text)
       else
         text.strip
       end
