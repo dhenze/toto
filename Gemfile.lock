@@ -3,9 +3,9 @@ PATH
   specs:
     toto (0.4.9)
       builder
-      coderay
+      coderay (= 1.0.9)
       rack
-      redcarpet
+      redcarpet (= 1.17.2)
 
 GEM
   remote: https://rubygems.org/
@@ -15,7 +15,7 @@ GEM
     hpricot (0.8.6)
     rack (1.5.2)
     rake (10.0.4)
-    redcarpet (2.3.0)
+    redcarpet (1.17.2)
     riot (0.12.5)
       rr
     rr (1.1.0)
