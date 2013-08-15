@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   
   s.add_runtime_dependency "builder", ">= 0"
   s.add_runtime_dependency "rack", ">= 0"
-  s.add_runtime_dependency "redcarpet", "1.17.2"
+  s.add_runtime_dependency "redcarpet", ">=3.0"
   s.add_runtime_dependency "coderay", "1.0.9"
 
 end
