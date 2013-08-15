@@ -31,7 +31,7 @@ module Toto
 
   class CodeRayify < Redcarpet::Render::HTML
     def block_code(code, language)
-      CodeRay.scan(code, language).div
+      CodeRay.highlight(code, language)
     end
   end
 
