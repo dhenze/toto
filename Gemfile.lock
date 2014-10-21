@@ -5,7 +5,7 @@ PATH
       builder
       coderay (= 1.0.9)
       rack
-      redcarpet (= 1.17.2)
+      redcarpet (>= 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -15,7 +15,7 @@ GEM
     hpricot (0.8.6)
     rack (1.5.2)
     rake (10.0.4)
-    redcarpet (1.17.2)
+    redcarpet (3.0.0)
     riot (0.12.5)
       rr
     rr (1.1.0)

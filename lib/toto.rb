@@ -344,7 +344,11 @@ module Toto
       @site = Toto::Site.new(@config)
     end
 
-    def call env
+    def call(env)
+      dup._call(env)
+    end
+
+    def _call env
       @request  = Rack::Request.new env
       @response = Rack::Response.new
 
