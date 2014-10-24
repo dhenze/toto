@@ -293,6 +293,7 @@ module Toto
       "/#{@config[:prefix]}#{self[:date].strftime("/%Y/%m/%d/#{slug}/")}".squeeze('/')
     end
 
+    def tags()    self[:tags] || @config[:default_tag] end
     def title()   self[:title] || "an article"               end
     def date()    @config[:date].call(self[:date])           end
     def author()  self[:author] || @config[:author]          end
@@ -304,6 +305,7 @@ module Toto
     Defaults = {
       :author => ENV['USER'],                               # blog author
       :title => Dir.pwd.split('/').last,                    # site title
+      :default_tag => "untagged",                           # default tag for articles           
       :root => "index",                                     # site index
       :url => "http://127.0.0.1",                           # root URL of the site
       :prefix => "",                                        # common path prefix for the blog

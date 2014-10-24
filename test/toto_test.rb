@@ -176,6 +176,7 @@ context Toto do
       should("have an author")             { topic.author }.equals AUTHOR
       should("have a path")                { topic.path }.equals Date.today.strftime("/%Y/%m/%d/toto-and-the-wizard-of-oz/")
       should("have a url")                 { topic.url }.equals Date.today.strftime("#{URL}/%Y/%m/%d/toto-and-the-wizard-of-oz/")
+      should("have a tag")                 { topic.tags }.equals "untagged"
     end
 
     context "with a user-defined summary" do
@@ -197,13 +198,15 @@ context Toto do
           :body   => ("a little bit of text." * 5) + "\n" + "filler" * 10,
           :date   => "19/10/1976",
           :slug   => "wizard-of-oz",
-          :author => "toetoe"
+          :author => "toetoe",
+          :tags   => ["tag1", "tag2"]
         }, @config)
       end
 
       should("parse the date") { [topic[:date].month, topic[:date].year] }.equals [10, 1976]
       should("use the slug")   { topic.slug }.equals "wizard-of-oz"
       should("use the author") { topic.author }.equals "toetoe"
+      should("have two tags") { topic.tags }.equals ["tag1", "tag2"]
 
       context "and long first paragraph" do
         should("create a valid summary") { topic.summary }.equals "<p>" + ("a little bit of text." * 5).chop + "&hellip;</p>\n"
