@@ -293,7 +293,7 @@ module Toto
       "/#{@config[:prefix]}#{self[:date].strftime("/%Y/%m/%d/#{slug}/")}".squeeze('/')
     end
 
-    def tags()    self[:tags] || @config[:default_tag] end
+    def tags()    self[:tags] || [@config[:default_tag]] end
     def title()   self[:title] || "an article"               end
     def date()    @config[:date].call(self[:date])           end
     def author()  self[:author] || @config[:author]          end
