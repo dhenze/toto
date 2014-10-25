@@ -138,7 +138,7 @@ context Toto do
 
     context "when the repo is in the :repos array" do
       setup do
-        @config[:github] = {:user => "cloudhead", :repos => ['the-repo']}
+        @config[:github] = {:user => "cloudhead", :repos => ['the-repo'],  :ext => "md"}
         @toto.get('/the-repo')
       end
       should("return the-repo's README") { topic.body }.includes("the-repo's README")

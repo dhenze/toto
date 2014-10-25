@@ -116,7 +116,6 @@ module Toto
       context = lambda do |data, page|
         Context.new(data, @config, path, env).render(page, type)
       end
-
       body, status = if Context.new.respond_to?(:"to_#{type}")
         if route.first =~ /\d{4}/
           case route.size
@@ -203,15 +202,15 @@ module Toto
   class Repo < Hash
     include Template
 
-    README = "https://github.com/%s/%s/raw/master/README.%s"
+    README = "https://raw.githubusercontent.com/%s/%s/master/README.%s"
 
     def initialize name, config
       self[:name], @config = name, config
     end
 
     def readme
-      markdown open(README %
-        [@config[:github][:user], self[:name], @config[:github][:ext]]).read
+      url = README % [@config[:github][:user], self[:name], @config[:github][:ext]]
+      markdown open(url).read
     rescue Timeout::Error, OpenURI::HTTPError => e
       "This page isn't available."
     end
