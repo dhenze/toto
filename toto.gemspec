@@ -1,11 +1,10 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'toto/version'
+$:.push File.expand_path("../lib", __FILE__)
+require 'semver'
 
 Gem::Specification.new do |s|
   s.name             = %q{toto}
-  s.version          = Toto::Version
+  s.version          = SemVer.find.format '%M.%m.%p'
 
   s.authors          = ["cloudhead"]
   s.date             = %q{2010-12-01}
@@ -31,7 +30,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rack", "1.5.2"
   s.add_runtime_dependency "redcarpet", "3.0.0" #redcarpet (3.2.0, 3.0.0, 1.17.2)
   s.add_runtime_dependency "coderay", "1.0.9"
-  s.add_runtime_dependency "semver", "1.0.1"
-
 end
 
