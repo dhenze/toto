@@ -1,6 +1,7 @@
 title: the wizard of oz
 date: 12/10/1932
-tag: berlin
+tags: 
+    - berlin
 
 Once upon a time...
 

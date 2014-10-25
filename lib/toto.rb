@@ -94,8 +94,9 @@ module Toto
         { :archives => Archives.new(entries, @config) }
       else 
         tagged = entries.select do |article|
-          article_tag = article[:tag]
-          article_tag && article_tag.slugize == tag
+          article_tags = article[:tags] || []
+          article_tags.include? tag
+          #article_tag && article_tag.slugize == tag
         end 
         { :tags => tagged.first[:tag], :archives => tagged } if tagged.size > 0 
       end

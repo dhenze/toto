@@ -176,7 +176,7 @@ context Toto do
       should("have an author")             { topic.author }.equals AUTHOR
       should("have a path")                { topic.path }.equals Date.today.strftime("/%Y/%m/%d/toto-and-the-wizard-of-oz/")
       should("have a url")                 { topic.url }.equals Date.today.strftime("#{URL}/%Y/%m/%d/toto-and-the-wizard-of-oz/")
-      should("have a tag")                 { topic.tags }.equals "untagged"
+      should("have one tag")               { topic.tags }.equals ["untagged"]
     end
 
     context "with a user-defined summary" do
