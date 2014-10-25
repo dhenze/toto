@@ -6,6 +6,7 @@ PATH
       coderay (= 1.0.9)
       rack (= 1.5.2)
       redcarpet (= 3.0.0)
+      semver (= 1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -28,5 +29,4 @@ DEPENDENCIES
   hpricot (= 0.8.6)
   rake (= 10.1.0)
   riot (= 0.12.5)
-  semver (= 1.0.1)
   toto!
