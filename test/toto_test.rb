@@ -151,6 +151,13 @@ context Toto do
       end
       should("return a 404") { topic.status }.equals 404
     end
+    context "when the repo is partly matched with :repos array" do
+      setup do
+        @config[:github] = {:user => "cloudhead", :repos => ['the-repo']}
+        @toto.get('/the-')
+      end
+      should("return a 404") { topic.status }.equals 404
+    end
   end
 
   context "creating an article" do
