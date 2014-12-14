@@ -1,10 +1,9 @@
 # coding: utf-8
 $:.push File.expand_path("../lib", __FILE__)
-require 'semver'
 
 Gem::Specification.new do |s|
   s.name             = %q{toto}
-  s.version          = SemVer.find.format '%M.%m.%p'
+  s.version          = '0.5.8'
 
   s.authors          = ["cloudhead"]
   s.date             = %q{2010-12-01}
