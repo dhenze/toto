@@ -2,19 +2,19 @@ PATH
   remote: .
   specs:
     toto (0.5.9)
-      builder (~> 3.2.2)
-      coderay (~> 1.0.9)
-      rack (~> 1.5.2)
+      builder
+      coderay
+      rack
       redcarpet (~> 3.0.0)
-      semver (~> 1.0.1)
+      semver
 
 GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
-    coderay (1.0.9)
+    coderay (1.1.1)
     hpricot (0.8.6)
-    rack (1.5.5)
+    rack (2.0.1)
     rake (10.1.1)
     redcarpet (3.0.0)
     riot (0.12.7)
