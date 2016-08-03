@@ -3,9 +3,9 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name             = %q{toto}
-  s.version          = '0.5.8'
+  s.version          = '0.5.9'
 
-  s.authors          = ["cloudhead"]
+  s.authors          = ["cloudhead", "dhenze"]
   s.date             = %q{2010-12-01}
   s.description      = %q{the tiniest blog-engine in Oz.}
   s.email            = %q{self@cloudhead.net}
@@ -21,15 +21,14 @@ Gem::Specification.new do |s|
   s.summary          = %q{the tiniest blog-engine in Oz}
   s.test_files       = `git ls-files -- {test,spec,features}/*`.split("\n")
 
-  s.add_development_dependency "riot", "0.12.5"
-  s.add_development_dependency "rake", "10.1.0"
-  s.add_development_dependency "hpricot", "0.8.6"
-  
-  s.add_runtime_dependency "builder", "3.2.2"
-  s.add_runtime_dependency "rack", "1.5.2"
-  s.add_runtime_dependency "redcarpet", "3.0.0" #redcarpet (3.2.0, 3.0.0, 1.17.2)
-  s.add_runtime_dependency "coderay", "1.0.9"
-  s.add_runtime_dependency "semver", "1.0.1"
+  s.add_development_dependency "riot", "~> 0.12.5"
+  s.add_development_dependency "rake", "~> 10.1.0"
+  s.add_development_dependency "hpricot", "~> 0.8.6"
+
+  s.add_runtime_dependency "builder", "~> 3.2.2"
+  s.add_runtime_dependency "rack", "~> 0.5.2"
+  s.add_runtime_dependency "redcarpet", "~> 3.0.0" #redcarpet (3.2.0, 3.0.0, 1.17.2)
+  s.add_runtime_dependency "coderay", "~> 1.0.9"
+  s.add_runtime_dependency "semver", "~> 1.0.1"
 
 end
-
